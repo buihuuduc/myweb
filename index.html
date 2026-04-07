@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duc Leopard | IoT Passion</title>
+  <title>Hữu Đức | IoT Passion</title>
   <meta name="description" content="Trang giới thiệu doanh nghiệp IoT Passion, Hữu Đức và các giải pháp IoT chuyên nghiệp." />
   <style>
     * { box-sizing: border-box; }
@@ -31,6 +31,9 @@
         radial-gradient(circle at left center, rgba(29, 78, 216, 0.18), transparent 26%),
         linear-gradient(180deg, #05070d, #0a0f1c 45%, #0b1220 100%);
       line-height: 1.65;
+    }
+    body.modal-open {
+      overflow: hidden;
     }
     .container {
       width: min(var(--maxw), calc(100% - 32px));
@@ -139,7 +142,10 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
     }
     .btn:hover {
       transform: translateY(-2px);
@@ -179,7 +185,8 @@
     .card,
     .about-box,
     .contact-box,
-    .banner {
+    .banner,
+    .protocol-box {
       background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(7, 11, 21, 0.96));
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
@@ -214,6 +221,7 @@
     }
     section {
       padding: 34px 0 28px;
+      scroll-margin-top: 92px;
     }
     .section-head {
       margin-bottom: 22px;
@@ -283,6 +291,46 @@
       margin: 0;
       color: var(--muted);
     }
+    .protocol-box {
+      padding: 30px;
+      margin-top: 20px;
+    }
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .protocol-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .protocol-item h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #fff;
+    }
+    .protocol-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .tag {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(250, 204, 21, 0.08);
+      border: 1px solid rgba(250, 204, 21, 0.18);
+      color: #fde68a;
+      font-size: 13px;
+      font-weight: 700;
+    }
     .banner {
       padding: 32px;
       display: grid;
@@ -303,6 +351,12 @@
     .contact-box {
       padding: 32px;
       margin-top: 10px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .contact-box.highlight {
+      border-color: rgba(250, 204, 21, 0.5);
+      box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.12), 0 20px 50px rgba(250, 204, 21, 0.14);
+      transform: translateY(-2px);
     }
     .contact-grid {
       display: grid;
@@ -329,6 +383,85 @@
       word-break: break-word;
       font-weight: 700;
     }
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(2, 6, 23, 0.76);
+      z-index: 100;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-panel {
+      width: min(620px, 100%);
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(7, 11, 21, 0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .modal h3 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+    .modal p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #fde68a;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      font: inherit;
+      outline: none;
+    }
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(250, 204, 21, 0.45);
+      box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.08);
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
     footer {
       padding: 34px 0 46px;
       text-align: center;
@@ -340,7 +473,8 @@
       .about-grid,
       .grid,
       .contact-grid,
-      .banner {
+      .banner,
+      .protocol-grid {
         grid-template-columns: 1fr;
       }
       .hero-stats {
@@ -381,8 +515,9 @@
           IoT Passion hướng tới những hệ thống thực chiến, ổn định và có thể mở rộng cho doanh nghiệp.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://iotpassion.com" target="_blank">Khám phá website</a>
-          <a class="btn btn-secondary" href="mailto:huuduc@iotpassion.com">Liên hệ hợp tác</a>
+          <a class="btn btn-primary" href="https://iotpassion.com" target="_blank" rel="noopener noreferrer">Khám phá website</a>
+          <a class="btn btn-secondary" href="#lien-he" id="contactLink">Liên hệ hợp tác</a>
+          <button class="btn btn-secondary" type="button" id="openModalBtn">Gửi yêu cầu nhanh</button>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -475,15 +610,15 @@
           </p>
         </div>
         <div class="card">
-          <h3>Kết nối giao thức công nghiệp</h3>
+          <h3>Node-RED Solutions</h3>
           <p>
-            Tích hợp thiết bị qua Modbus, MQTT, Ethernet và nhiều chuẩn kết nối phổ biến, tạo nên hệ sinh thái dữ liệu đồng bộ và sẵn sàng mở rộng.
+            Triển khai giải pháp Node-RED từ bản lite đến bản full cho điều khiển logic, dashboard, workflow tự động, kết nối cloud và xử lý dữ liệu hiện trường.
           </p>
         </div>
         <div class="card">
-          <h3>Cảnh báo thông minh</h3>
+          <h3>NeuronEX Integration</h3>
           <p>
-            Thiết lập cảnh báo theo ngưỡng, theo trạng thái hoặc theo sự kiện bất thường để tăng tốc độ xử lý và hạn chế rủi ro trong vận hành thực tế.
+            Xây dựng hệ thống NeuronEX phục vụ thu thập dữ liệu, gateway công nghiệp, protocol conversion và đẩy dữ liệu về SCADA, MQTT broker hoặc nền tảng phân tích.
           </p>
         </div>
         <div class="card">
@@ -491,6 +626,42 @@
           <p>
             Tư vấn và phát triển hệ thống IoT phù hợp với từng mô hình sử dụng, từ bài toán nhỏ đến kiến trúc vận hành có quy mô lớn hơn.
           </p>
+        </div>
+      </div>
+
+      <div class="protocol-box">
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="section-kicker">Node-RED & NeuronEX</span>
+          <h2 class="section-title">Từ bản lite đến bản full, hỗ trợ đa giao thức công nghiệp</h2>
+          <p class="section-desc">
+            Chúng tôi cung cấp giải pháp từ mô hình nhẹ, tối ưu chi phí đến hệ thống đầy đủ tính năng cho nhà máy và công trình kỹ thuật. Trọng tâm là khả năng kết nối đa thiết bị, đa giao thức và linh hoạt mở rộng theo từng giai đoạn triển khai.
+          </p>
+        </div>
+        <div class="protocol-grid">
+          <div class="protocol-item">
+            <h4>Node-RED Lite đến Full System</h4>
+            <p>
+              Phù hợp từ các bài toán thử nghiệm, demo, giám sát đơn điểm cho đến hệ thống dashboard, alarm, điều khiển và tích hợp nhiều luồng dữ liệu trong môi trường vận hành thực tế.
+            </p>
+          </div>
+          <div class="protocol-item">
+            <h4>NeuronEX Gateway & Data Hub</h4>
+            <p>
+              Dùng để đọc dữ liệu thiết bị công nghiệp, gom dữ liệu tập trung, chuyển đổi giao thức, chuẩn hóa tín hiệu và kết nối lên các hệ thống quản trị cấp cao hơn.
+            </p>
+          </div>
+        </div>
+        <div class="tag-list">
+          <div class="tag">Modbus ASCII</div>
+          <div class="tag">Modbus RTU</div>
+          <div class="tag">Modbus TCP</div>
+          <div class="tag">OPC UA</div>
+          <div class="tag">MQTT</div>
+          <div class="tag">Web API</div>
+          <div class="tag">PLC Siemens</div>
+          <div class="tag">PLC Mitsubishi</div>
+          <div class="tag">Innova</div>
+          <div class="tag">Ethernet Devices</div>
         </div>
       </div>
 
@@ -502,7 +673,7 @@
           </p>
         </div>
         <div>
-          <a class="btn btn-primary" href="#lien-he">Kết nối ngay</a>
+          <a class="btn btn-primary" href="#lien-he" id="bannerContactLink">Kết nối ngay</a>
         </div>
       </div>
     </div>
@@ -517,7 +688,7 @@
           Sẵn sàng trao đổi về giải pháp IoT, hệ thống giám sát, dashboard vận hành hoặc nhu cầu triển khai theo yêu cầu.
         </p>
       </div>
-      <div class="contact-box">
+      <div class="contact-box" id="contactBox">
         <div class="contact-grid">
           <div class="contact-item">
             <span>Email</span>
@@ -529,16 +700,120 @@
           </div>
           <div class="contact-item">
             <span>Website</span>
-            <a href="https://iotpassion.com" target="_blank">iotpassion.com</a>
+            <a href="https://iotpassion.com" target="_blank" rel="noopener noreferrer">iotpassion.com</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="modal" id="contactModal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" type="button" id="closeModalBtn" aria-label="Đóng">×</button>
+      <h3>Gửi yêu cầu nhanh</h3>
+      <p>
+        Điền thông tin của bạn. Nút gửi sẽ mở ứng dụng email với nội dung đã soạn sẵn tới huuduc@iotpassion.com.
+      </p>
+      <form class="form-grid" id="contactForm">
+        <div class="field">
+          <label for="name">Họ và tên</label>
+          <input id="name" name="name" type="text" placeholder="Nhập họ và tên" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Nhập email của bạn" required />
+        </div>
+        <div class="field">
+          <label for="message">Nội dung</label>
+          <textarea id="message" name="message" placeholder="Mô tả nhu cầu về Node-RED, NeuronEX, SCADA, giao thức công nghiệp..." required></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" type="submit">Mở email để gửi</button>
+          <button class="btn btn-secondary" type="button" id="focusContactBtn">Xem thông tin liên hệ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <footer>
     © 2026 Hữu Đức | IoT Passion. Xây dựng giải pháp IoT chuyên nghiệp cho vận hành hiện đại.
   </footer>
+
+  <script>
+    const contactBox = document.getElementById('contactBox');
+    const contactModal = document.getElementById('contactModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const contactForm = document.getElementById('contactForm');
+    const focusContactBtn = document.getElementById('focusContactBtn');
+    const contactAnchors = [
+      document.getElementById('contactLink'),
+      document.getElementById('bannerContactLink')
+    ].filter(Boolean);
+
+    function highlightContact() {
+      if (!contactBox) return;
+      contactBox.classList.add('highlight');
+      window.clearTimeout(highlightContact.timer);
+      highlightContact.timer = window.setTimeout(() => {
+        contactBox.classList.remove('highlight');
+      }, 2200);
+    }
+
+    contactAnchors.forEach((link) => {
+      link.addEventListener('click', () => {
+        window.setTimeout(highlightContact, 450);
+      });
+    });
+
+    function openModal() {
+      contactModal.classList.add('show');
+      contactModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      contactModal.classList.remove('show');
+      contactModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    openModalBtn.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+
+    contactModal.addEventListener('click', (event) => {
+      if (event.target === contactModal) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && contactModal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+
+    focusContactBtn.addEventListener('click', () => {
+      closeModal();
+      document.getElementById('lien-he').scrollIntoView({ behavior: 'smooth' });
+      window.setTimeout(highlightContact, 450);
+    });
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Yêu cầu tư vấn giải pháp IoT từ website');
+      const body = encodeURIComponent(
+        'Họ và tên: ' + name + '
+' +
+        'Email: ' + email + '
+
+' +
+        'Nội dung yêu cầu:
+' + message
+      );
+      window.location.href = 'mailto:huuduc@iotpassion.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
 </body>
 </html>
-
