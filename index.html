@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IoT Passion | Industrial IoT Solutions</title>
-  <meta name="description" content="IoT Passion cung cấp giải pháp Node-RED, NeuronEX, SCADA, MQTT, PLC Integration và tự động hóa công nghiệp." />
+  <meta
+    name="description"
+    content="IoT Passion cung cấp giải pháp Node-RED, NeuronEX, SCADA, MQTT, PLC Integration và tự động hóa công nghiệp."
+  />
 
   <style>
     * {
@@ -52,11 +55,12 @@
     }
 
     .brand img {
-      width: 60px;
-      height: auto;
+      height: 50px;
+      width: auto;
       border-radius: 10px;
       box-shadow: 0 0 14px rgba(255, 60, 60, 0.35);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
     }
 
     .brand img:hover {
@@ -64,16 +68,25 @@
       box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
     }
 
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .brand-text h1 {
-      font-size: 22px;
+      font-size: 20px;
       color: #ffffff;
-      margin-bottom: 2px;
+      margin: 0;
+      line-height: 1.2;
     }
 
     .brand-text p {
       font-size: 12px;
       color: #bdbdbd;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.3px;
+      margin: 2px 0 0;
+      line-height: 1.2;
     }
 
     .nav-links {
@@ -329,6 +342,18 @@
       .section-title {
         font-size: 28px;
       }
+
+      .brand img {
+        height: 44px;
+      }
+
+      .brand-text h1 {
+        font-size: 18px;
+      }
+
+      .brand-text p {
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -358,8 +383,8 @@
       <div class="tagline">IoT • Automation • SCADA • Industrial Connectivity</div>
       <h2>Giải pháp <span>IoT công nghiệp</span> mạnh mẽ, linh hoạt và thực chiến</h2>
       <p>
-        IoT Passion cung cấp các giải pháp triển khai Node-RED, NeuronEX, SCADA, MQTT,
-        Web API và tích hợp PLC công nghiệp từ hệ thống nhỏ đến giải pháp doanh nghiệp.
+        IoT Passion cung cấp các giải pháp triển khai Node-RED, NeuronEX, SCADA, MQTT, Web API
+        và tích hợp PLC công nghiệp từ hệ thống nhỏ đến giải pháp doanh nghiệp.
       </p>
 
       <div class="hero-actions">
@@ -409,8 +434,8 @@
         <div class="card reveal">
           <h3>NeuronEX</h3>
           <p>
-            Kết nối đa giao thức công nghiệp từ bản lite đến bản full, hỗ trợ mở rộng mạnh
-            mẽ cho hệ thống nhà máy, trạm và thiết bị hiện trường.
+            Kết nối đa giao thức công nghiệp từ bản lite đến bản full, hỗ trợ mở rộng mạnh mẽ
+            cho hệ thống nhà máy, trạm và thiết bị hiện trường.
           </p>
         </div>
 
@@ -477,8 +502,8 @@
         <div class="card reveal">
           <h3>PLC Siemens / Mitsu / Innova</h3>
           <p>
-            Kết nối trực tiếp tới PLC và controller để thu thập dữ liệu, điều khiển và
-            phân tích trạng thái hệ thống.
+            Kết nối trực tiếp tới PLC và controller để thu thập dữ liệu, điều khiển
+            và phân tích trạng thái hệ thống.
           </p>
         </div>
 
