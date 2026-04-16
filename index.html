@@ -631,8 +631,23 @@
       margin-bottom: 14px;
     }
 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       background: #ffffff;
       border: 1px solid #d1d5db;
@@ -641,6 +656,14 @@
       color: #111827;
       font-size: 15px;
       outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
     }
 
     .form-group input::placeholder,
@@ -653,11 +676,82 @@
       resize: vertical;
     }
 
+    .required-mark {
+      color: #ef4444;
+    }
+
+    .submit-wrap {
+      margin-top: 18px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      min-height: 52px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(245, 158, 11, 0.24);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      display: none;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .submit-btn.loading .spinner {
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     #formStatus {
       margin-top: 14px;
       font-size: 14px;
-      color: #374151;
       min-height: 22px;
+      font-weight: 600;
+    }
+
+    #formStatus.success {
+      color: #059669;
+    }
+
+    #formStatus.error {
+      color: #dc2626;
+    }
+
+    #formStatus.info {
+      color: #374151;
+    }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #6b7280;
     }
 
     footer {
@@ -723,7 +817,8 @@
       .about-grid,
       .solutions-grid,
       .pricing-grid,
-      .ecosystem-grid {
+      .ecosystem-grid,
+      .form-row {
         grid-template-columns: 1fr;
       }
 
@@ -1136,29 +1231,44 @@
             <h3>Gửi yêu cầu nhanh</h3>
             <p>Điền thông tin để IoT Passion liên hệ và tư vấn giải pháp phù hợp.</p>
 
-            <form id="contactForm">
-              <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Họ và tên <span class="required-mark">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="company">Công ty / Nhà máy</label>
+                  <input type="text" id="company" name="company" placeholder="Tên công ty">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email <span class="required-mark">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="name@company.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Số điện thoại</label>
+                  <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxx">
+                </div>
               </div>
 
               <div class="form-group">
-                <input type="text" id="company" name="company" placeholder="Công ty / Nhà máy">
+                <label for="message">Mô tả nhu cầu</label>
+                <textarea id="message" name="message" placeholder="Ví dụ: Kết nối PLC, dashboard SCADA, gateway, cloud, giám sát từ xa..."></textarea>
               </div>
 
-              <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Email liên hệ" required>
+              <div class="submit-wrap">
+                <button type="submit" class="submit-btn" id="submitBtn">
+                  <span class="spinner" id="submitSpinner"></span>
+                  <span id="submitLabel">Gửi yêu cầu</span>
+                </button>
+                <p id="formStatus" class="info"></p>
+                <p class="form-note">Thông tin của bạn sẽ được gửi vào hệ thống tiếp nhận của IoT Passion để tư vấn nhanh hơn.</p>
               </div>
-
-              <div class="form-group">
-                <input type="tel" id="phone" name="phone" placeholder="Số điện thoại">
-              </div>
-
-              <div class="form-group">
-                <textarea id="message" name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary">Gửi thông tin</button>
-              <p id="formStatus"></p>
             </form>
           </div>
         </div>
@@ -1195,70 +1305,77 @@
           });
         });
       });
-document.addEventListener("DOMContentLoaded", function () {
 
-  // ===== FILTER TAB SẢN PHẨM =====
-  const pricingTabs = document.querySelectorAll(".pricing-tab");
-  const pricingCards = document.querySelectorAll(".price-card");
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
+      const form = document.getElementById("contactForm");
+      const statusText = document.getElementById("formStatus");
+      const submitBtn = document.getElementById("submitBtn");
+      const submitLabel = document.getElementById("submitLabel");
 
-  pricingTabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      pricingTabs.forEach(btn => btn.classList.remove("active"));
-      tab.classList.add("active");
+      if (!form) {
+        console.error("Không tìm thấy form #contactForm");
+        return;
+      }
 
-      const filter = tab.getAttribute("data-filter");
+      function setStatus(message, type) {
+        statusText.textContent = message;
+        statusText.className = type;
+      }
 
-      pricingCards.forEach(card => {
-        const category = card.getAttribute("data-category");
-        if (filter === "all" || category === filter) {
-          card.classList.remove("hide");
-        } else {
-          card.classList.add("hide");
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const company = document.getElementById("company").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email) {
+          setStatus("Vui lòng nhập đầy đủ Họ và tên và Email.", "error");
+          return;
+        }
+
+        if (!validateEmail(email)) {
+          setStatus("Email chưa đúng định dạng.", "error");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add("loading");
+        submitLabel.textContent = "Đang gửi...";
+        setStatus("Đang gửi thông tin...", "info");
+
+        const data = new URLSearchParams();
+        data.append("name", name);
+        data.append("company", company);
+        data.append("email", email);
+        data.append("phone", phone);
+        data.append("message", message);
+
+        try {
+          await fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: data
+          });
+
+          setStatus("Gửi thành công! IoT Passion sẽ liên hệ sớm.", "success");
+          form.reset();
+        } catch (error) {
+          console.error(error);
+          setStatus("Gửi thất bại. Vui lòng thử lại.", "error");
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("loading");
+          submitLabel.textContent = "Gửi yêu cầu";
         }
       });
     });
-  });
-
-
-  // ===== FORM GỬI GOOGLE SHEET =====
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
-  const form = document.getElementById("contactForm");
-  const statusText = document.getElementById("formStatus");
-
-  if (!form) {
-    console.error("Không tìm thấy form #contactForm");
-    return;
-  }
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    statusText.textContent = "Đang gửi thông tin...";
-
-    const data = new URLSearchParams();
-    data.append("name", document.getElementById("name").value);
-    data.append("company", document.getElementById("company").value);
-    data.append("email", document.getElementById("email").value);
-    data.append("phone", document.getElementById("phone").value);
-    data.append("message", document.getElementById("message").value);
-
-    try {
-      await fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: data
-      });
-
-      statusText.textContent = "Gửi thành công! Kiểm tra Google Sheet.";
-      form.reset();
-
-    } catch (error) {
-      statusText.textContent = "Lỗi gửi dữ liệu!";
-      console.error(error);
-    }
-  });
-
-});
-</script>
+  </script>
 </body>
 </html>
