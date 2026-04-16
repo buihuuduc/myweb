@@ -1195,12 +1195,40 @@
           });
         });
       });
+document.addEventListener("DOMContentLoaded", function () {
 
-      <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  // ===== FILTER TAB SẢN PHẨM =====
+  const pricingTabs = document.querySelectorAll(".pricing-tab");
+  const pricingCards = document.querySelectorAll(".price-card");
+
+  pricingTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      pricingTabs.forEach(btn => btn.classList.remove("active"));
+      tab.classList.add("active");
+
+      const filter = tab.getAttribute("data-filter");
+
+      pricingCards.forEach(card => {
+        const category = card.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+
+
+  // ===== FORM GỬI GOOGLE SHEET =====
   const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
   const form = document.getElementById("contactForm");
   const statusText = document.getElementById("formStatus");
+
+  if (!form) {
+    console.error("Không tìm thấy form #contactForm");
+    return;
+  }
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -1221,13 +1249,16 @@
         body: data
       });
 
-      statusText.textContent = "Đã gửi. Kiểm tra Google Sheet!";
+      statusText.textContent = "Gửi thành công! Kiểm tra Google Sheet.";
       form.reset();
+
     } catch (error) {
       statusText.textContent = "Lỗi gửi dữ liệu!";
       console.error(error);
     }
   });
-  </script>
+
+});
+</script>
 </body>
 </html>
