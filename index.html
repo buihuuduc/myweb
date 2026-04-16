@@ -1231,10 +1231,10 @@
         body: JSON.stringify(formData)
       });
 
-      statusText.textContent = "Gửi thông tin thành công. IoT Passion sẽ liên hệ sớm.";
+      statusText.textContent = "Gửi thành công!";
       form.reset();
     } catch (error) {
-      statusText.textContent = "Không gửi được dữ liệu. Vui lòng kiểm tra lại kết nối.";
+      statusText.textContent = "Lỗi gửi dữ liệu!";
       console.error(error);
     }
   });
