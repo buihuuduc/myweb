@@ -1146,28 +1146,30 @@
           </div>
 
           <div class="contact-form">
-            <h3>Gửi yêu cầu nhanh</h3>
-            <p>Biểu mẫu đơn giản để khách hàng để lại thông tin liên hệ.</p>
+  <h3>Gửi yêu cầu nhanh</h3>
+  <p>Điền thông tin để IoT Passion liên hệ và tư vấn giải pháp phù hợp.</p>
 
-            <form action="mailto:huuduc@iotpassion.com" method="post" enctype="text/plain">
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Họ và tên" required />
-              </div>
-              <div class="form-group">
-                <input type="text" name="company" placeholder="Công ty / Nhà máy" />
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" placeholder="Email liên hệ" required />
-              </div>
-              <div class="form-group">
-                <input type="tel" name="phone" placeholder="Số điện thoại" />
-              </div>
-              <div class="form-group">
-                <textarea name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Gửi thông tin</button>
-            </form>
-          </div>
+  <form id="contactForm">
+    <div class="form-group">
+      <input type="text" id="name" name="name" placeholder="Họ và tên" required />
+    </div>
+    <div class="form-group">
+      <input type="text" id="company" name="company" placeholder="Công ty / Nhà máy" />
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" name="email" placeholder="Email liên hệ" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" />
+    </div>
+    <div class="form-group">
+      <textarea id="message" name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gửi thông tin</button>
+    <p id="formStatus" style="margin-top:12px;font-size:14px;color:#374151;"></p>
+  </form>
+</div>
         </div>
       </div>
     </section>
@@ -1202,6 +1204,44 @@
         });
       });
     });
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz2oLdXzL2FPg2HLV-ixwMGFc3AUiv-pJWsXYotEu9oaOscnDFK0hgU-UMelEhB3mbbVg/exec";
+  const form = document.getElementById("contactForm");
+  const statusText = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    statusText.textContent = "Đang gửi thông tin...";
+
+    const formData = {
+      name: document.getElementById("name").value,
+      company: document.getElementById("company").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      message: document.getElementById("message").value
+    };
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const result = await response.json();
+
+      if (result.result === "success") {
+        statusText.textContent = "Gửi thông tin thành công. IoT Passion sẽ liên hệ sớm.";
+        form.reset();
+      } else {
+        statusText.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+      }
+    } catch (error) {
+      statusText.textContent = "Không gửi được dữ liệu. Vui lòng kiểm tra lại kết nối.";
+    }
+  });
   </script>
 </body>
 </html>
