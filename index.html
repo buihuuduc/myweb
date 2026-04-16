@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IoT Passion | Industrial IoT Solutions</title>
+  <title>IoT Passion | Industrial Automation & Smart Integration</title>
   <meta
     name="description"
-    content="IoT Passion cung cấp giải pháp Node-RED, NeuronEX, SCADA, MQTT, PLC Integration và tự động hóa công nghiệp."
+    content="IoT Passion cung cấp giải pháp Industrial IoT, SCADA, Node-RED, NeuronEX, PLC integration, cloud deployment và dashboard giám sát thông minh."
   />
-
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #050505 0%, #101010 100%);
-      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #1f2937;
       line-height: 1.6;
     }
 
@@ -29,548 +28,1180 @@
       color: inherit;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      background: rgba(245, 158, 11, 0.08);
+      color: #d97706;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: #111827;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: #4b5563;
+      max-width: 780px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      color: #ffffff;
+      box-shadow: 0 12px 28px rgba(245, 158, 11, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(245, 158, 11, 0.24);
+    }
+
+    .btn-secondary {
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .btn-secondary:hover {
+      background: #f9fafb;
+      transform: translateY(-2px);
+    }
+
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255, 60, 60, 0.25);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
     }
 
     .navbar {
-      max-width: 1200px;
-      margin: auto;
-      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-height: 78px;
       gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .brand img {
-      height: 50px;
-      width: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 14px rgba(255, 60, 60, 0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: block;
-    }
-
-    .brand img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      padding: 4px;
     }
 
     .brand-text h1 {
-      font-size: 20px;
-      color: #ffffff;
-      margin: 0;
-      line-height: 1.2;
+      font-size: 22px;
+      line-height: 1.1;
+      margin-bottom: 2px;
+      color: #111827;
     }
 
-    .brand-text p {
+    .brand-text span {
+      display: block;
       font-size: 12px;
-      color: #bdbdbd;
-      letter-spacing: 0.3px;
-      margin: 2px 0 0;
-      line-height: 1.2;
+      color: #6b7280;
+      letter-spacing: 0.6px;
     }
 
-    .nav-links {
+    .nav {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
-    .nav-links a {
-      color: #e8e8e8;
-      font-size: 14px;
-      transition: color 0.3s ease;
+    .nav a {
+      color: #374151;
+      font-weight: 600;
+      transition: 0.25s ease;
     }
 
-    .nav-links a:hover {
-      color: #ff4d4d;
+    .nav a:hover {
+      color: #d97706;
     }
 
     .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px 50px;
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
       background:
-        radial-gradient(circle at top right, rgba(255, 50, 50, 0.18), transparent 25%),
-        radial-gradient(circle at bottom left, rgba(255, 80, 80, 0.10), transparent 25%);
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 22%),
+        radial-gradient(circle at left center, rgba(59, 130, 246, 0.08), transparent 25%),
+        linear-gradient(180deg, #ffffff 0%, #fffaf2 100%);
     }
 
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero .tagline {
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid rgba(255, 70, 70, 0.35);
-      border-radius: 999px;
-      color: #ff8c8c;
-      font-size: 14px;
-      margin-bottom: 20px;
-      background: rgba(255, 60, 60, 0.08);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
     }
 
     .hero h2 {
-      font-size: 50px;
-      line-height: 1.2;
+      font-size: 56px;
+      line-height: 1.08;
       margin-bottom: 18px;
-      color: #ffffff;
+      max-width: 760px;
+      color: #111827;
     }
 
     .hero h2 span {
-      color: #ff3c3c;
-      text-shadow: 0 0 18px rgba(255, 60, 60, 0.35);
+      color: #d97706;
     }
 
     .hero p {
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #d0d0d0;
       font-size: 18px;
+      color: #4b5563;
+      max-width: 760px;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
       display: flex;
-      justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 28px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: #ff3c3c;
-      color: #fff;
-      box-shadow: 0 0 16px rgba(255, 60, 60, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: #ff2020;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .btn-outline:hover {
-      border-color: #ff4d4d;
-      color: #ff8a8a;
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 80px 20px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 18px;
-      font-size: 34px;
-      color: #ffffff;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 45px;
-      color: #c4c4c4;
-      font-size: 17px;
-    }
-
-    .grid {
+    .hero-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+      max-width: 760px;
     }
 
-    .card {
-      background: linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.6s ease;
+    .stat-box {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 60, 60, 0.32);
-      box-shadow: 0 14px 30px rgba(255, 60, 60, 0.12);
+    .stat-box h3 {
+      font-size: 28px;
+      color: #d97706;
+      margin-bottom: 6px;
     }
 
-    .card h3 {
-      color: #ff5b5b;
+    .stat-box p {
+      font-size: 14px;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.08);
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      background: #f9fafb;
+    }
+
+    .hero-card h3 {
+      font-size: 24px;
       margin-bottom: 10px;
-      font-size: 22px;
+      color: #111827;
     }
 
-    .card p {
-      color: #d3d3d3;
+    .hero-card p {
+      font-size: 15px;
+      margin-bottom: 18px;
+      color: #4b5563;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero-card li {
+      position: relative;
+      padding-left: 24px;
+      color: #374151;
       font-size: 15px;
     }
 
-    .highlight-box {
-      margin-top: 40px;
-      padding: 28px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255, 60, 60, 0.14), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(255, 60, 60, 0.18);
+    .hero-card li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #d97706;
+      font-weight: 800;
     }
 
-    .highlight-box h3 {
-      margin-bottom: 12px;
-      color: #ff6d6d;
-      font-size: 24px;
+    section {
+      padding: 90px 0;
     }
 
-    .highlight-box p {
-      color: #d8d8d8;
-    }
-
-    .contact {
-      background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .contact-box {
-      max-width: 860px;
-      margin: auto;
+    .section-head {
+      margin-bottom: 42px;
       text-align: center;
-      padding: 35px 24px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 60, 60, 0.16);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
-      transition: box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
-    .contact-box.active {
-      border-color: rgba(255, 60, 60, 0.48);
-      box-shadow: 0 0 30px rgba(255, 60, 60, 0.18);
+    .section-head .section-desc {
+      margin: 0 auto;
     }
 
-    .contact-box p {
-      margin: 10px 0;
-      color: #e0e0e0;
-      font-size: 17px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 24px;
     }
 
-    .contact-box strong {
-      color: #ff7272;
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 28px;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
     }
 
-    .contact-actions {
-      margin-top: 22px;
+    .info-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    }
+
+    .info-card h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+      color: #111827;
+    }
+
+    .info-card p {
+      color: #4b5563;
+    }
+
+    .solutions-section {
+      background: #f9fafb;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 24px;
+    }
+
+    .solution-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 28px;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .solution-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.08);
+    }
+
+    .solution-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .solution-card p {
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .solution-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .solution-card li {
+      position: relative;
+      padding-left: 24px;
+      color: #374151;
+    }
+
+    .solution-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #d97706;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .products-section {
+      background: #ffffff;
+    }
+
+    .pricing-tabs {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .pricing-tab {
+      background: #ffffff;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 12px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-weight: 700;
+    }
+
+    .pricing-tab:hover,
+    .pricing-tab.active {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .price-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      transition: 0.25s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 20px 46px rgba(0,0,0,0.10);
+    }
+
+    .price-card.featured {
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      box-shadow: 0 20px 44px rgba(245, 158, 11, 0.12);
+    }
+
+    .card-tag {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      width: fit-content;
+      background: rgba(245, 158, 11, 0.12);
+      color: #d97706;
+    }
+
+    .card-tag.dark {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .card-tag.gold {
+      background: rgba(245, 158, 11, 0.12);
+      color: #d97706;
+    }
+
+    .card-tag.blue {
+      background: rgba(59, 130, 246, 0.10);
+      color: #2563eb;
+    }
+
+    .card-tag.green {
+      background: rgba(16, 185, 129, 0.10);
+      color: #059669;
+    }
+
+    .price-card h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      color: #111827;
+    }
+
+    .card-desc {
+      color: #4b5563;
+      line-height: 1.7;
+      min-height: 88px;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 800;
+      margin-top: 20px;
+      color: #111827;
+    }
+
+    .price-note {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 6px;
+      margin-bottom: 20px;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 12px;
+      line-height: 1.65;
+      color: #374151;
+    }
+
+    .feature-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #d97706;
+      font-weight: 800;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .pricing-note-box {
+      margin-top: 32px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #fff7ed;
+      border-left: 4px solid #f59e0b;
+      color: #4b5563;
+      line-height: 1.7;
+    }
+
+    .price-card.hide {
+      display: none;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .eco-item {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      font-weight: 700;
+      color: #374151;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .eco-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .contact-section {
+      background: #f9fafb;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .contact-card h3,
+    .contact-form h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+      color: #111827;
+    }
+
+    .contact-card p,
+    .contact-form p {
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contact-list li {
+      color: #374151;
+    }
+
+    .contact-list strong {
+      color: #d97706;
+    }
+
+    .mini-note {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: #111827;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
     }
 
     footer {
-      text-align: center;
-      padding: 24px 16px;
-      color: #9a9a9a;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      background: #060606;
+      padding: 24px 0 40px;
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #6b7280;
+      font-size: 14px;
     }
 
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid,
+      .solutions-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .hero h2 {
+        font-size: 46px;
+      }
     }
 
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
         align-items: flex-start;
+        padding: 16px 0;
       }
 
-      .nav-links {
-        gap: 12px;
+      .nav {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
       }
 
       .hero h2 {
         font-size: 34px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .section-title {
+        font-size: 32px;
       }
 
-      .section-title {
+      .hero-stats,
+      .about-grid,
+      .solutions-grid,
+      .pricing-grid,
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-desc {
+        min-height: auto;
+      }
+
+      .price {
         font-size: 28px;
       }
 
-      .brand img {
-        height: 44px;
-      }
-
       .brand-text h1 {
-        font-size: 18px;
-      }
-
-      .brand-text p {
-        font-size: 11px;
+        font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="navbar">
+    <div class="container navbar">
       <div class="brand">
-        <img src="images/logo-iotpassion.png" alt="IoT Passion Logo" />
+        <img src="image/iotpassion.png" alt="IoT Passion Logo" class="brand-logo" />
         <div class="brand-text">
           <h1>IoT Passion</h1>
-          <p>Industrial Automation & Smart Integration</p>
+          <span>Industrial Automation & Smart Integration</span>
         </div>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav">
         <a href="#about">Giới thiệu</a>
-        <a href="#services">Giải pháp</a>
+        <a href="#solutions">Giải pháp</a>
+        <a href="#products">Sản phẩm</a>
         <a href="#ecosystem">Hệ sinh thái</a>
-        <a href="#contact" id="contactLink">Liên hệ</a>
+        <a href="#contact">Liên hệ</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="tagline">IoT • Automation • SCADA • Industrial Connectivity</div>
-      <h2>Giải pháp <span>IoT công nghiệp</span> mạnh mẽ, linh hoạt và thực chiến</h2>
-      <p>
-        IoT Passion cung cấp các giải pháp triển khai Node-RED, NeuronEX, SCADA, MQTT, Web API
-        và tích hợp PLC công nghiệp từ hệ thống nhỏ đến giải pháp doanh nghiệp.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">Xem giải pháp</a>
-        <a href="#contact" class="btn btn-outline">Liên hệ hợp tác</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">Về IoT Passion</h2>
-      <p class="section-subtitle">
-        Chúng tôi tập trung vào tự động hóa công nghiệp, giám sát dữ liệu, kết nối thiết bị
-        và xây dựng các nền tảng điều khiển linh hoạt cho doanh nghiệp sản xuất, năng lượng,
-        nhà máy và hệ thống IoT phân tán.
-      </p>
-
-      <div class="highlight-box reveal">
-        <h3>Tư duy triển khai thực tế</h3>
-        <p>
-          Không chỉ là website giới thiệu, IoT Passion hướng tới việc xây dựng các giải pháp
-          có thể triển khai ngoài thực tế: thu thập dữ liệu, hiển thị dashboard, điều khiển
-          thiết bị, kết nối PLC, MQTT broker, cơ sở dữ liệu và tích hợp nền tảng cloud.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Giải pháp của chúng tôi</h2>
-      <p class="section-subtitle">
-        Từ hệ thống lite đến full solution, hỗ trợ nhiều giao thức công nghiệp và khả năng
-        mở rộng theo nhu cầu doanh nghiệp.
-      </p>
-
-      <div class="grid">
-        <div class="card reveal">
-          <h3>Node-RED</h3>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="section-badge">INDUSTRIAL IOT PLATFORM</span>
+          <h2>
+            Tích hợp <span>Industrial IoT</span>, giám sát thông minh và tự động hóa
+            cho nhà máy, năng lượng và hệ thống phân tán
+          </h2>
           <p>
-            Xây dựng luồng xử lý dữ liệu, điều khiển thiết bị, dashboard và API nhanh chóng,
-            phù hợp cho hệ thống IoT, edge computing và automation.
+            IoT Passion đồng hành cùng doanh nghiệp trong việc kết nối PLC, gateway,
+            cảm biến, cloud, dashboard và các giao thức công nghiệp để tạo nên hệ thống
+            vận hành hiện đại, linh hoạt và dễ mở rộng.
           </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Xem sản phẩm</a>
+            <a href="#contact" class="btn btn-secondary">Liên hệ hợp tác</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-box">
+              <h3>10+</h3>
+              <p>Chuẩn kết nối công nghiệp & IoT có thể triển khai</p>
+            </div>
+            <div class="stat-box">
+              <h3>24/7</h3>
+              <p>Khả năng giám sát dữ liệu, cảnh báo và điều khiển từ xa</p>
+            </div>
+            <div class="stat-box">
+              <h3>End-to-End</h3>
+              <p>Từ thiết bị hiện trường đến cloud, dashboard và báo cáo</p>
+            </div>
+          </div>
         </div>
 
-        <div class="card reveal">
-          <h3>NeuronEX</h3>
+        <div class="hero-card">
+          <img src="image/iotpassion.png" alt="IoT Passion Showcase" />
+          <h3>Giải pháp thực chiến cho doanh nghiệp</h3>
           <p>
-            Kết nối đa giao thức công nghiệp từ bản lite đến bản full, hỗ trợ mở rộng mạnh mẽ
-            cho hệ thống nhà máy, trạm và thiết bị hiện trường.
+            Tối ưu từ edge gateway, PLC integration, SCADA dashboard đến triển khai cloud
+            và vận hành hệ thống nhiều điểm đo.
           </p>
-        </div>
-
-        <div class="card reveal">
-          <h3>SCADA & Dashboard</h3>
-          <p>
-            Thiết kế giao diện giám sát trực quan, hiển thị trạng thái, cảnh báo, biểu đồ
-            và điều khiển theo thời gian thực.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <h3>PLC Integration</h3>
-          <p>
-            Tích hợp PLC Siemens, Mitsubishi, Innova và nhiều thiết bị công nghiệp khác
-            vào hệ thống giám sát và điều khiển tập trung.
-          </p>
+          <ul>
+            <li>Node-RED, NeuronEX, SCADA, InfluxDB</li>
+            <li>Modbus RTU/TCP, MQTT, OPC UA, Web API</li>
+            <li>PLC Siemens, Mitsubishi, Innova và nhiều hệ điều khiển khác</li>
+            <li>Triển khai cloud, hybrid, remote monitoring</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="ecosystem">
-    <div class="container">
-      <h2 class="section-title">Hệ sinh thái kết nối công nghiệp</h2>
-      <p class="section-subtitle">
-        Hỗ trợ nhiều chuẩn truyền thông từ phổ biến đến chuyên sâu, giúp doanh nghiệp
-        kết nối hệ thống cũ và mới trên cùng một nền tảng.
-      </p>
-
-      <div class="grid">
-        <div class="card reveal">
-          <h3>Modbus ASCII / RTU / TCP</h3>
-          <p>
-            Kết nối cảm biến, đồng hồ điện, biến tần, bộ điều khiển và thiết bị hiện trường
-            qua chuẩn Modbus phổ biến.
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">ABOUT IOT PASSION</span>
+          <h2 class="section-title">Giải pháp công nghiệp được thiết kế để tăng hiệu quả vận hành</h2>
+          <p class="section-desc">
+            Chúng tôi tập trung vào kết nối dữ liệu công nghiệp, trực quan hóa vận hành,
+            tự động hóa báo cáo và triển khai các nền tảng IoT phù hợp với nhu cầu thực tế
+            của doanh nghiệp.
           </p>
         </div>
 
-        <div class="card reveal">
-          <h3>OPC UA</h3>
-          <p>
-            Tích hợp dữ liệu công nghiệp theo kiến trúc hiện đại, tăng khả năng chuẩn hóa
-            và liên kết giữa nhiều hệ thống.
-          </p>
-        </div>
+        <div class="about-grid">
+          <div class="info-card">
+            <h3>Kết nối đa giao thức</h3>
+            <p>
+              Hỗ trợ các chuẩn công nghiệp phổ biến như Modbus ASCII, RTU, TCP, OPC UA,
+              MQTT, Web API và nhiều thiết bị hiện trường khác.
+            </p>
+          </div>
 
-        <div class="card reveal">
-          <h3>MQTT</h3>
-          <p>
-            Giao tiếp realtime, nhẹ và hiệu quả cho các giải pháp IoT, edge gateway,
-            giám sát từ xa và hạ tầng phân tán.
-          </p>
-        </div>
+          <div class="info-card">
+            <h3>Triển khai linh hoạt</h3>
+            <p>
+              Phù hợp từ hệ thống nhỏ, demo PoC cho đến các kiến trúc cloud, hybrid,
+              multi-site và quản trị tập trung theo doanh nghiệp.
+            </p>
+          </div>
 
-        <div class="card reveal">
-          <h3>Web API</h3>
-          <p>
-            Đồng bộ dữ liệu với nền tảng web, mobile app, cloud service, ERP hoặc các hệ
-            thống quản trị nội bộ.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <h3>PLC Siemens / Mitsu / Innova</h3>
-          <p>
-            Kết nối trực tiếp tới PLC và controller để thu thập dữ liệu, điều khiển
-            và phân tích trạng thái hệ thống.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <h3>Custom Solution</h3>
-          <p>
-            Thiết kế giải pháp theo nhu cầu riêng: edge server, gateway, điều khiển từ xa,
-            logging dữ liệu, cảnh báo và tích hợp đa nền tảng.
-          </p>
+          <div class="info-card">
+            <h3>Thiết kế theo vận hành thực tế</h3>
+            <p>
+              Dashboard, SCADA, cảnh báo và báo cáo được xây dựng dựa trên quy trình vận hành,
+              giúp đội kỹ thuật và quản lý dễ theo dõi và ra quyết định nhanh hơn.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Liên hệ hợp tác</h2>
-      <p class="section-subtitle">
-        Kết nối với IoT Passion để cùng triển khai các giải pháp tự động hóa và IoT công nghiệp.
-      </p>
+    <section id="solutions" class="solutions-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">CORE SOLUTIONS</span>
+          <h2 class="section-title">Các giải pháp nổi bật</h2>
+          <p class="section-desc">
+            Từ edge gateway đến hệ thống cloud giám sát, IoT Passion xây dựng kiến trúc
+            mở, dễ tích hợp và phù hợp nhiều ngành nghề.
+          </p>
+        </div>
 
-      <div class="contact-box reveal" id="contactBox">
-        <p><strong>Email:</strong> <a href="mailto:huuduc@iotpassion.com">huuduc@iotpassion.com</a></p>
-        <p><strong>Điện thoại:</strong> <a href="tel:0938801480">0938801480</a></p>
-        <p><strong>Website:</strong> <a href="https://iotpassion.com" target="_blank">iotpassion.com</a></p>
+        <div class="solutions-grid">
+          <div class="solution-card">
+            <h3>Industrial Data Integration</h3>
+            <p>
+              Thu thập, chuẩn hóa và truyền dữ liệu từ PLC, thiết bị đo, cảm biến và máy móc.
+            </p>
+            <ul>
+              <li>Kết nối PLC và controller</li>
+              <li>Bridge protocol công nghiệp</li>
+              <li>Đồng bộ dữ liệu về server hoặc cloud</li>
+            </ul>
+          </div>
 
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:huuduc@iotpassion.com?subject=Liên%20hệ%20hợp%20tác%20IoT%20Passion">Gửi email</a>
-          <a class="btn btn-outline" href="tel:0938801480">Gọi ngay</a>
+          <div class="solution-card">
+            <h3>SCADA & Dashboard</h3>
+            <p>
+              Thiết kế giao diện giám sát trực quan, biểu đồ thời gian thực, cảnh báo và báo cáo.
+            </p>
+            <ul>
+              <li>Dashboard desktop / mobile</li>
+              <li>Cảnh báo realtime</li>
+              <li>Thiết kế theo quy trình vận hành</li>
+            </ul>
+          </div>
+
+          <div class="solution-card">
+            <h3>Cloud & Remote Monitoring</h3>
+            <p>
+              Triển khai hệ thống remote access, cloud server, database, API và quản trị từ xa.
+            </p>
+            <ul>
+              <li>Docker / Linux / server deployment</li>
+              <li>Cloud hoặc hybrid architecture</li>
+              <li>Mở rộng theo nhiều nhà máy / nhiều site</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">PRODUCTS & SOLUTIONS</span>
+          <h2 class="section-title">Sản phẩm & giải pháp</h2>
+          <p class="section-desc">
+            Từ giải pháp Lite đến triển khai doanh nghiệp, IoT Passion cung cấp phần mềm,
+            gateway và dịch vụ tích hợp công nghiệp thực chiến cho nhà máy, hệ thống năng lượng,
+            trạm giám sát và nền tảng IoT phân tán.
+          </p>
+        </div>
+
+        <div class="pricing-tabs">
+          <button class="pricing-tab active" data-filter="all">Tất cả</button>
+          <button class="pricing-tab" data-filter="software">Phần mềm</button>
+          <button class="pricing-tab" data-filter="hardware">Thiết bị</button>
+          <button class="pricing-tab" data-filter="service">Dịch vụ</button>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card featured" data-category="software">
+            <span class="card-tag">Phổ biến</span>
+            <h3>IoT Passion Lite</h3>
+            <p class="card-desc">
+              Gói khởi động nhanh cho hệ thống nhỏ, demo PoC, giám sát thiết bị và thu thập dữ liệu cơ bản.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo nhu cầu</div>
+            <ul class="feature-list">
+              <li>Node-RED flow cơ bản</li>
+              <li>MQTT / Modbus TCP / Web API</li>
+              <li>Dashboard giám sát cơ bản</li>
+              <li>Kết nối thiết bị và test dữ liệu</li>
+              <li>Phù hợp hệ thống pilot / demo</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Nhận báo giá</a>
+              <a href="mailto:huuduc@iotpassion.com" class="btn btn-secondary">Gửi email</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="software">
+            <span class="card-tag dark">Giải pháp nâng cao</span>
+            <h3>IoT Passion Pro</h3>
+            <p class="card-desc">
+              Gói triển khai cho nhà máy, xưởng sản xuất, hệ thống nhiều điểm đo với dashboard và cảnh báo chuyên sâu.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo nhu cầu</div>
+            <ul class="feature-list">
+              <li>Node-RED / NeuronEX tích hợp nâng cao</li>
+              <li>InfluxDB / historian / logging dữ liệu</li>
+              <li>SCADA dashboard theo yêu cầu</li>
+              <li>Cảnh báo realtime qua web / mobile</li>
+              <li>Phù hợp hệ thống sản xuất thực tế</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Tư vấn ngay</a>
+              <a href="tel:0938801480" class="btn btn-secondary">Gọi ngay</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="software">
+            <span class="card-tag gold">Enterprise</span>
+            <h3>IoT Passion Enterprise</h3>
+            <p class="card-desc">
+              Nền tảng đa điểm, multi-site, cloud integration, điều khiển từ xa và kiến trúc mở rộng theo doanh nghiệp.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo nhu cầu</div>
+            <ul class="feature-list">
+              <li>Multi-site / multi-user / phân quyền</li>
+              <li>Cloud, API, ERP, MES integration</li>
+              <li>Dashboard quản trị tập trung</li>
+              <li>Thiết kế kiến trúc mở rộng dài hạn</li>
+              <li>Hỗ trợ tối ưu theo mô hình doanh nghiệp</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Yêu cầu tư vấn</a>
+              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20IoT%20Passion%20Enterprise" class="btn btn-secondary">Báo giá riêng</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="hardware">
+            <span class="card-tag blue">Gateway</span>
+            <h3>EC100 Industrial Gateway</h3>
+            <p class="card-desc">
+              Gateway công nghiệp cho edge computing, thu thập dữ liệu, bridge protocol và triển khai thực địa.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo cấu hình</div>
+            <ul class="feature-list">
+              <li>Hỗ trợ edge computing</li>
+              <li>Modbus / MQTT / Web API</li>
+              <li>Ứng dụng cho nhà máy và hệ thống phân tán</li>
+              <li>Tùy chọn cài Node-RED / runtime</li>
+              <li>Tư vấn cấu hình theo nhu cầu</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Xem cấu hình</a>
+              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20EC100%20Gateway" class="btn btn-secondary">Nhận báo giá</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="hardware">
+            <span class="card-tag blue">LoRa / Remote</span>
+            <h3>LoRa Gateway / Remote Node</h3>
+            <p class="card-desc">
+              Giải pháp kết nối từ xa cho năng lượng, môi trường, cảnh báo và hệ thống cảm biến phân tán.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo cấu hình</div>
+            <ul class="feature-list">
+              <li>LoRa gateway / repeater / node</li>
+              <li>Giám sát từ xa, vùng phủ rộng</li>
+              <li>Phù hợp nông nghiệp, điện năng, môi trường</li>
+              <li>Thiết kế linh hoạt theo vị trí lắp đặt</li>
+              <li>Tùy chọn tích hợp solar / battery</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Tư vấn thiết bị</a>
+              <a href="tel:0938801480" class="btn btn-secondary">Gọi trực tiếp</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="service">
+            <span class="card-tag green">Integration</span>
+            <h3>PLC Integration Package</h3>
+            <p class="card-desc">
+              Kết nối PLC Siemens, Mitsubishi, Innova và thiết bị hiện trường vào hệ thống giám sát tập trung.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo dự án</div>
+            <ul class="feature-list">
+              <li>Kết nối PLC và controller</li>
+              <li>Đọc / ghi dữ liệu thực tế</li>
+              <li>Chuẩn hóa tag và mapping tín hiệu</li>
+              <li>Tối ưu vận hành và giám sát</li>
+              <li>Phù hợp cải tạo hệ thống cũ - mới</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Nhận giải pháp</a>
+              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20PLC%20Integration" class="btn btn-secondary">Trao đổi dự án</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="service">
+            <span class="card-tag green">SCADA</span>
+            <h3>SCADA Dashboard Design</h3>
+            <p class="card-desc">
+              Thiết kế giao diện giám sát trực quan, biểu đồ, cảnh báo, báo cáo và điều khiển theo thời gian thực.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo số lượng tag & màn hình</div>
+            <ul class="feature-list">
+              <li>UI dashboard công nghiệp</li>
+              <li>Biểu đồ và cảnh báo realtime</li>
+              <li>Tối ưu hiển thị desktop / mobile</li>
+              <li>Thiết kế theo layout vận hành thực tế</li>
+              <li>Hỗ trợ FUXA / custom web / SCADA</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Đặt thiết kế</a>
+              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20SCADA%20Dashboard" class="btn btn-secondary">Xem demo</a>
+            </div>
+          </div>
+
+          <div class="price-card" data-category="service">
+            <span class="card-tag green">Deployment</span>
+            <h3>Cloud IoT Deployment</h3>
+            <p class="card-desc">
+              Triển khai server, edge, broker, dashboard, database và tích hợp cloud cho hệ thống giám sát từ xa.
+            </p>
+            <div class="price">Liên hệ</div>
+            <div class="price-note">/ báo giá theo kiến trúc hệ thống</div>
+            <ul class="feature-list">
+              <li>Triển khai broker / database / API</li>
+              <li>Docker / Linux / remote access</li>
+              <li>Cloud hoặc hybrid architecture</li>
+              <li>Bảo mật và tối ưu vận hành</li>
+              <li>Phù hợp dự án nhiều điểm / nhiều người dùng</li>
+            </ul>
+            <div class="card-actions">
+              <a href="#contact" class="btn btn-primary">Tư vấn triển khai</a>
+              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20Cloud%20IoT%20Deployment" class="btn btn-secondary">Nhận báo giá</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-note-box">
+          <strong>Lưu ý:</strong> Mỗi giải pháp sẽ được tư vấn và báo giá theo nhu cầu thực tế,
+          quy mô triển khai, số lượng thiết bị, giao thức kết nối và phạm vi tích hợp của doanh nghiệp.
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">TECHNOLOGY ECOSYSTEM</span>
+          <h2 class="section-title">Hệ sinh thái công nghệ</h2>
+          <p class="section-desc">
+            Nền tảng mở giúp doanh nghiệp linh hoạt mở rộng, tích hợp và tối ưu hệ thống theo thực tế vận hành.
+          </p>
+        </div>
+
+        <div class="ecosystem-grid">
+          <div class="eco-item">Node-RED</div>
+          <div class="eco-item">NeuronEX</div>
+          <div class="eco-item">FUXA SCADA</div>
+          <div class="eco-item">InfluxDB</div>
+          <div class="eco-item">MQTT Broker</div>
+          <div class="eco-item">Docker / Linux</div>
+          <div class="eco-item">PLC Integration</div>
+          <div class="eco-item">Cloud / Hybrid</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">CONTACT & COOPERATION</span>
+          <h2 class="section-title">Liên hệ hợp tác</h2>
+          <p class="section-desc">
+            Kết nối với IoT Passion để trao đổi về giải pháp, thiết bị, dashboard hoặc triển khai hệ thống cho doanh nghiệp của bạn.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Thông tin liên hệ</h3>
+            <p>
+              Sẵn sàng trao đổi các nhu cầu về giải pháp IoT công nghiệp, PLC integration,
+              cloud, SCADA, dashboard và hệ thống giám sát từ xa.
+            </p>
+
+            <ul class="contact-list">
+              <li><strong>Email:</strong> <a href="mailto:huuduc@iotpassion.com">huuduc@iotpassion.com</a></li>
+              <li><strong>Điện thoại:</strong> <a href="tel:0938801480">0938 801 480</a></li>
+              <li><strong>Website:</strong> <a href="https://iotpassion.com/" target="_blank">iotpassion.com</a></li>
+            </ul>
+
+            <p class="mini-note">
+              Bạn có thể gửi yêu cầu báo giá, mô tả hệ thống hiện có hoặc nhu cầu tích hợp để được tư vấn nhanh hơn.
+            </p>
+          </div>
+
+          <div class="contact-form">
+            <h3>Gửi yêu cầu nhanh</h3>
+            <p>Biểu mẫu đơn giản để khách hàng để lại thông tin liên hệ.</p>
+
+            <form action="mailto:huuduc@iotpassion.com" method="post" enctype="text/plain">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Họ và tên" required />
+              </div>
+              <div class="form-group">
+                <input type="text" name="company" placeholder="Công ty / Nhà máy" />
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Email liên hệ" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder="Số điện thoại" />
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Gửi thông tin</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2026 IoT Passion. All Rights Reserved.
+    <div class="container footer-inner">
+      <div>© 2026 IoT Passion. All rights reserved.</div>
+      <div>Industrial Automation • Smart Integration • IoT Solutions</div>
+    </div>
   </footer>
 
   <script>
-    const revealElements = document.querySelectorAll('.reveal');
+    const pricingTabs = document.querySelectorAll('.pricing-tab');
+    const pricingCards = document.querySelectorAll('.price-card');
 
-    function revealOnScroll() {
-      revealElements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+    pricingTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        pricingTabs.forEach(btn => btn.classList.remove('active'));
+        tab.classList.add('active');
 
-        if (elementTop < windowHeight - 80) {
-          element.classList.add('show');
-        }
+        const filter = tab.getAttribute('data-filter');
+
+        pricingCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
       });
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-
-    const contactLink = document.getElementById('contactLink');
-    const contactBox = document.getElementById('contactBox');
-
-    contactLink.addEventListener('click', function () {
-      setTimeout(() => {
-        contactBox.classList.add('active');
-        setTimeout(() => {
-          contactBox.classList.remove('active');
-        }, 2200);
-      }, 300);
     });
   </script>
-
 </body>
 </html>
