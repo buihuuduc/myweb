@@ -76,12 +76,14 @@
       border-radius: 14px;
       font-weight: 700;
       transition: 0.25s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #f59e0b, #f97316);
       color: #ffffff;
       box-shadow: 0 12px 28px rgba(245, 158, 11, 0.18);
+      border: none;
     }
 
     .btn-primary:hover {
@@ -120,11 +122,11 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .brand-logo {
-      height: 48px;
+      height: 52px;
       width: auto;
       object-fit: contain;
       border-radius: 8px;
@@ -245,7 +247,7 @@
     .hero-card img {
       width: 100%;
       border-radius: 20px;
-      object-fit: cover;
+      object-fit: contain;
       margin-bottom: 20px;
       background: #f9fafb;
     }
@@ -651,6 +653,13 @@
       resize: vertical;
     }
 
+    #formStatus {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #374151;
+      min-height: 22px;
+    }
+
     footer {
       padding: 24px 0 40px;
       border-top: 1px solid #e5e7eb;
@@ -736,7 +745,7 @@
   <header>
     <div class="container navbar">
       <div class="brand">
-        <img src="images/iotpassion.png" class="brand-logo" />
+        <img src="images/logo-iotpassion.png" alt="IoT Passion Logo" class="brand-logo" />
         <div class="brand-text">
           <h1>IoT Passion</h1>
           <span>Industrial Automation & Smart Integration</span>
@@ -790,7 +799,7 @@
         </div>
 
         <div class="hero-card">
-          <img src="images/iotpassion.png" alt="IoT Passion Showcase" />
+          <img src="images/logo-iotpassion.png" alt="IoT Passion Showcase" />
           <h3>Giải pháp thực chiến cho doanh nghiệp</h3>
           <p>
             Tối ưu từ edge gateway, PLC integration, SCADA dashboard đến triển khai cloud
@@ -860,9 +869,7 @@
         <div class="solutions-grid">
           <div class="solution-card">
             <h3>Industrial Data Integration</h3>
-            <p>
-              Thu thập, chuẩn hóa và truyền dữ liệu từ PLC, thiết bị đo, cảm biến và máy móc.
-            </p>
+            <p>Thu thập, chuẩn hóa và truyền dữ liệu từ PLC, thiết bị đo, cảm biến và máy móc.</p>
             <ul>
               <li>Kết nối PLC và controller</li>
               <li>Bridge protocol công nghiệp</li>
@@ -872,9 +879,7 @@
 
           <div class="solution-card">
             <h3>SCADA & Dashboard</h3>
-            <p>
-              Thiết kế giao diện giám sát trực quan, biểu đồ thời gian thực, cảnh báo và báo cáo.
-            </p>
+            <p>Thiết kế giao diện giám sát trực quan, biểu đồ thời gian thực, cảnh báo và báo cáo.</p>
             <ul>
               <li>Dashboard desktop / mobile</li>
               <li>Cảnh báo realtime</li>
@@ -884,9 +889,7 @@
 
           <div class="solution-card">
             <h3>Cloud & Remote Monitoring</h3>
-            <p>
-              Triển khai hệ thống remote access, cloud server, database, API và quản trị từ xa.
-            </p>
+            <p>Triển khai hệ thống remote access, cloud server, database, API và quản trị từ xa.</p>
             <ul>
               <li>Docker / Linux / server deployment</li>
               <li>Cloud hoặc hybrid architecture</li>
@@ -920,9 +923,7 @@
           <div class="price-card featured" data-category="software">
             <span class="card-tag">Phổ biến</span>
             <h3>IoT Passion Lite</h3>
-            <p class="card-desc">
-              Gói khởi động nhanh cho hệ thống nhỏ, demo PoC, giám sát thiết bị và thu thập dữ liệu cơ bản.
-            </p>
+            <p class="card-desc">Gói khởi động nhanh cho hệ thống nhỏ, demo PoC, giám sát thiết bị và thu thập dữ liệu cơ bản.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo nhu cầu</div>
             <ul class="feature-list">
@@ -934,16 +935,14 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Nhận báo giá</a>
-              <a href="mailto:huuduc@iotpassion.com" class="btn btn-secondary">Gửi email</a>
+              <a href="mailto:huuduc.electric@gmail.com" class="btn btn-secondary">Gửi email</a>
             </div>
           </div>
 
           <div class="price-card" data-category="software">
             <span class="card-tag dark">Giải pháp nâng cao</span>
             <h3>IoT Passion Pro</h3>
-            <p class="card-desc">
-              Gói triển khai cho nhà máy, xưởng sản xuất, hệ thống nhiều điểm đo với dashboard và cảnh báo chuyên sâu.
-            </p>
+            <p class="card-desc">Gói triển khai cho nhà máy, xưởng sản xuất, hệ thống nhiều điểm đo với dashboard và cảnh báo chuyên sâu.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo nhu cầu</div>
             <ul class="feature-list">
@@ -962,9 +961,7 @@
           <div class="price-card" data-category="software">
             <span class="card-tag gold">Enterprise</span>
             <h3>IoT Passion Enterprise</h3>
-            <p class="card-desc">
-              Nền tảng đa điểm, multi-site, cloud integration, điều khiển từ xa và kiến trúc mở rộng theo doanh nghiệp.
-            </p>
+            <p class="card-desc">Nền tảng đa điểm, multi-site, cloud integration, điều khiển từ xa và kiến trúc mở rộng theo doanh nghiệp.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo nhu cầu</div>
             <ul class="feature-list">
@@ -976,16 +973,14 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Yêu cầu tư vấn</a>
-              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20IoT%20Passion%20Enterprise" class="btn btn-secondary">Báo giá riêng</a>
+              <a href="mailto:huuduc.electric@gmail.com?subject=Tu%20van%20IoT%20Passion%20Enterprise" class="btn btn-secondary">Báo giá riêng</a>
             </div>
           </div>
 
           <div class="price-card" data-category="hardware">
             <span class="card-tag blue">Gateway</span>
             <h3>EC100 Industrial Gateway</h3>
-            <p class="card-desc">
-              Gateway công nghiệp cho edge computing, thu thập dữ liệu, bridge protocol và triển khai thực địa.
-            </p>
+            <p class="card-desc">Gateway công nghiệp cho edge computing, thu thập dữ liệu, bridge protocol và triển khai thực địa.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo cấu hình</div>
             <ul class="feature-list">
@@ -997,16 +992,14 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Xem cấu hình</a>
-              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20EC100%20Gateway" class="btn btn-secondary">Nhận báo giá</a>
+              <a href="mailto:huuduc.electric@gmail.com?subject=Tu%20van%20EC100%20Gateway" class="btn btn-secondary">Nhận báo giá</a>
             </div>
           </div>
 
           <div class="price-card" data-category="hardware">
             <span class="card-tag blue">LoRa / Remote</span>
             <h3>LoRa Gateway / Remote Node</h3>
-            <p class="card-desc">
-              Giải pháp kết nối từ xa cho năng lượng, môi trường, cảnh báo và hệ thống cảm biến phân tán.
-            </p>
+            <p class="card-desc">Giải pháp kết nối từ xa cho năng lượng, môi trường, cảnh báo và hệ thống cảm biến phân tán.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo cấu hình</div>
             <ul class="feature-list">
@@ -1025,9 +1018,7 @@
           <div class="price-card" data-category="service">
             <span class="card-tag green">Integration</span>
             <h3>PLC Integration Package</h3>
-            <p class="card-desc">
-              Kết nối PLC Siemens, Mitsubishi, Innova và thiết bị hiện trường vào hệ thống giám sát tập trung.
-            </p>
+            <p class="card-desc">Kết nối PLC Siemens, Mitsubishi, Innova và thiết bị hiện trường vào hệ thống giám sát tập trung.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo dự án</div>
             <ul class="feature-list">
@@ -1039,16 +1030,14 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Nhận giải pháp</a>
-              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20PLC%20Integration" class="btn btn-secondary">Trao đổi dự án</a>
+              <a href="mailto:huuduc.electric@gmail.com?subject=Tu%20van%20PLC%20Integration" class="btn btn-secondary">Trao đổi dự án</a>
             </div>
           </div>
 
           <div class="price-card" data-category="service">
             <span class="card-tag green">SCADA</span>
             <h3>SCADA Dashboard Design</h3>
-            <p class="card-desc">
-              Thiết kế giao diện giám sát trực quan, biểu đồ, cảnh báo, báo cáo và điều khiển theo thời gian thực.
-            </p>
+            <p class="card-desc">Thiết kế giao diện giám sát trực quan, biểu đồ, cảnh báo, báo cáo và điều khiển theo thời gian thực.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo số lượng tag & màn hình</div>
             <ul class="feature-list">
@@ -1060,16 +1049,14 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Đặt thiết kế</a>
-              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20SCADA%20Dashboard" class="btn btn-secondary">Xem demo</a>
+              <a href="mailto:huuduc.electric@gmail.com?subject=Tu%20van%20SCADA%20Dashboard" class="btn btn-secondary">Xem demo</a>
             </div>
           </div>
 
           <div class="price-card" data-category="service">
             <span class="card-tag green">Deployment</span>
             <h3>Cloud IoT Deployment</h3>
-            <p class="card-desc">
-              Triển khai server, edge, broker, dashboard, database và tích hợp cloud cho hệ thống giám sát từ xa.
-            </p>
+            <p class="card-desc">Triển khai server, edge, broker, dashboard, database và tích hợp cloud cho hệ thống giám sát từ xa.</p>
             <div class="price">Liên hệ</div>
             <div class="price-note">/ báo giá theo kiến trúc hệ thống</div>
             <ul class="feature-list">
@@ -1081,7 +1068,7 @@
             </ul>
             <div class="card-actions">
               <a href="#contact" class="btn btn-primary">Tư vấn triển khai</a>
-              <a href="mailto:huuduc@iotpassion.com?subject=Tu%20van%20Cloud%20IoT%20Deployment" class="btn btn-secondary">Nhận báo giá</a>
+              <a href="mailto:huuduc.electric@gmail.com?subject=Tu%20van%20Cloud%20IoT%20Deployment" class="btn btn-secondary">Nhận báo giá</a>
             </div>
           </div>
         </div>
@@ -1111,7 +1098,7 @@
           <div class="eco-item">MQTT Broker</div>
           <div class="eco-item">Docker / Linux</div>
           <div class="eco-item">PLC Integration</div>
-          <div class="eco-item">Cloud / Easylorawan</div>
+          <div class="eco-item">Cloud / EasyLorawan</div>
         </div>
       </div>
     </section>
@@ -1135,7 +1122,7 @@
             </p>
 
             <ul class="contact-list">
-              <li><strong>Email:</strong> <a href="mailto:huuduc@iotpassion.com">huuduc@iotpassion.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:huuduc.electric@gmail.com">huuduc.electric@gmail.com</a></li>
               <li><strong>Điện thoại:</strong> <a href="tel:0938801480">0938 801 480</a></li>
               <li><strong>Website:</strong> <a href="https://iotpassion.com/" target="_blank">iotpassion.com</a></li>
             </ul>
@@ -1146,30 +1133,34 @@
           </div>
 
           <div class="contact-form">
-  <h3>Gửi yêu cầu nhanh</h3>
-  <p>Điền thông tin để IoT Passion liên hệ và tư vấn giải pháp phù hợp.</p>
+            <h3>Gửi yêu cầu nhanh</h3>
+            <p>Điền thông tin để IoT Passion liên hệ và tư vấn giải pháp phù hợp.</p>
 
-  <form id="contactForm">
-    <div class="form-group">
-      <input type="text" id="name" name="name" placeholder="Họ và tên" required />
-    </div>
-    <div class="form-group">
-      <input type="text" id="company" name="company" placeholder="Công ty / Nhà máy" />
-    </div>
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Email liên hệ" required />
-    </div>
-    <div class="form-group">
-      <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" />
-    </div>
-    <div class="form-group">
-      <textarea id="message" name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
-    </div>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+              </div>
 
-    <button type="submit" class="btn btn-primary">Gửi thông tin</button>
-    <p id="formStatus" style="margin-top:12px;font-size:14px;color:#374151;"></p>
-  </form>
-</div>
+              <div class="form-group">
+                <input type="text" id="company" name="company" placeholder="Công ty / Nhà máy">
+              </div>
+
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email liên hệ" required>
+              </div>
+
+              <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder="Số điện thoại">
+              </div>
+
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Mô tả nhu cầu: PLC, dashboard, gateway, cloud, SCADA..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Gửi thông tin</button>
+              <p id="formStatus"></p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1183,61 +1174,68 @@
   </footer>
 
   <script>
-    const pricingTabs = document.querySelectorAll('.pricing-tab');
-    const pricingCards = document.querySelectorAll('.price-card');
+    document.addEventListener("DOMContentLoaded", function () {
+      const pricingTabs = document.querySelectorAll(".pricing-tab");
+      const pricingCards = document.querySelectorAll(".price-card");
 
-    pricingTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        pricingTabs.forEach(btn => btn.classList.remove('active'));
-        tab.classList.add('active');
+      pricingTabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          pricingTabs.forEach(btn => btn.classList.remove("active"));
+          tab.classList.add("active");
 
-        const filter = tab.getAttribute('data-filter');
+          const filter = tab.getAttribute("data-filter");
 
-        pricingCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-
-          if (filter === 'all' || category === filter) {
-            card.classList.remove('hide');
-          } else {
-            card.classList.add('hide');
-          }
+          pricingCards.forEach(card => {
+            const category = card.getAttribute("data-category");
+            if (filter === "all" || category === filter) {
+              card.classList.remove("hide");
+            } else {
+              card.classList.add("hide");
+            }
+          });
         });
       });
-    });
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
-  const form = document.getElementById("contactForm");
-  const statusText = document.getElementById("formStatus");
 
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
+      const form = document.getElementById("contactForm");
+      const statusText = document.getElementById("formStatus");
 
-    statusText.textContent = "Đang gửi thông tin...";
+      if (!form) {
+        console.error("Không tìm thấy form #contactForm");
+        return;
+      }
 
-    const formData = {
-      name: document.getElementById("name").value,
-      company: document.getElementById("company").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      message: document.getElementById("message").value
-    };
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-    try {
-      await fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+        statusText.textContent = "Đang gửi thông tin...";
+
+        const formData = {
+          name: document.getElementById("name")?.value || "",
+          company: document.getElementById("company")?.value || "",
+          email: document.getElementById("email")?.value || "",
+          phone: document.getElementById("phone")?.value || "",
+          message: document.getElementById("message")?.value || ""
+        };
+
+        try {
+          await fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+          });
+
+          statusText.textContent = "Gửi thành công! IoT Passion sẽ liên hệ sớm.";
+          form.reset();
+        } catch (error) {
+          statusText.textContent = "Lỗi gửi dữ liệu! Vui lòng thử lại.";
+          console.error(error);
+        }
       });
-
-      statusText.textContent = "Gửi thành công!";
-      form.reset();
-    } catch (error) {
-      statusText.textContent = "Lỗi gửi dữ liệu!";
-      console.error(error);
-    }
-  });
+    });
   </script>
 </body>
 </html>
