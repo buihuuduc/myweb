@@ -1196,46 +1196,38 @@
         });
       });
 
-      const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
-      const form = document.getElementById("contactForm");
-      const statusText = document.getElementById("formStatus");
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwaYLDxFB0nKWtqKoeuEoE5vGYgAslpoRieGKXPTIEkDzJTI1gVsq6xqnWX9bPX5PsRJQ/exec";
+  const form = document.getElementById("contactForm");
+  const statusText = document.getElementById("formStatus");
 
-      if (!form) {
-        console.error("Không tìm thấy form #contactForm");
-        return;
-      }
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
+    statusText.textContent = "Đang gửi thông tin...";
 
-        statusText.textContent = "Đang gửi thông tin...";
+    const data = new URLSearchParams();
+    data.append("name", document.getElementById("name").value);
+    data.append("company", document.getElementById("company").value);
+    data.append("email", document.getElementById("email").value);
+    data.append("phone", document.getElementById("phone").value);
+    data.append("message", document.getElementById("message").value);
 
-        const formData = {
-          name: document.getElementById("name")?.value || "",
-          company: document.getElementById("company")?.value || "",
-          email: document.getElementById("email")?.value || "",
-          phone: document.getElementById("phone")?.value || "",
-          message: document.getElementById("message")?.value || ""
-        };
-
-        try {
-          await fetch(scriptURL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-          });
-
-          statusText.textContent = "Gửi thành công! IoT Passion sẽ liên hệ sớm.";
-          form.reset();
-        } catch (error) {
-          statusText.textContent = "Lỗi gửi dữ liệu! Vui lòng thử lại.";
-          console.error(error);
-        }
+    try {
+      await fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data
       });
-    });
+
+      statusText.textContent = "Đã gửi. Kiểm tra Google Sheet!";
+      form.reset();
+    } catch (error) {
+      statusText.textContent = "Lỗi gửi dữ liệu!";
+      console.error(error);
+    }
+  });
   </script>
 </body>
 </html>
